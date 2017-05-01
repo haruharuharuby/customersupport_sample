@@ -1,0 +1,82 @@
+%h2= t("estimation.header1")
+%p= t("estimation.content1_1")
+%ol
+  %li= t("estimation.content1_list1")
+  %li= t("estimation.content1_list2")
+  %li= t("estimation.content1_list3")
+  %li= t("estimation.content1_list4")
+%p= t("estimation.content1_2")
+%p= t("estimation.content1_3_html")
+.well
+  %h3= t("estimation.header2")
+  = form_tag do
+    %dl
+      %dt= t("estimation.content2_1_html")
+      %dd<
+        = text_field :assistance, :item_1, class:"form-control quantity"
+        = "本"
+    %dl
+      %dt= t("estimation.content2_2_html")
+      %dd<
+        = text_field :assistance, :item_2, class:"form-control quantity"
+        = "本"
+    %dl
+      %dt= t("estimation.content2_3_html")
+      %dd<
+        .item-content-radio
+          = radio_button_tag :assistance_item_3, 1, checked: true
+          = label :assistance_item_3, 1, t("estimation.radio_yes")
+          = radio_button_tag :assistance_item_3, 2
+          = label :assistance_item_3, 2, t("estimation.radio_no")
+    .assistance-list
+      %ul
+        %li= t("estimation.content2_list1")
+        %li= t("estimation.content2_list2")
+        %li= t("estimation.content2_list3")
+    .button_wrap
+      %input{type: "button", value: t("estimation.refrection"), class:"btn btn-edit"}
+
+%table.table
+  %tr
+    %th= t("estimation.th_item_name")
+    %th= t("estimation.th_quantity")
+    %th= t("estimation.th_unit_price")
+    %th= t("estimation.th_price")
+
+
+= form_for estimation, html:{ class:"h-adr" } do |f|
+  .labeled-item
+    = f.label :dm_number, class:"label label-info"
+    = f.text_field :dm_number, class:"form-control"
+  .labeled-item
+    = f.label :organization_name, class:"label label-info"
+    = f.text_field :organization_name, class:"form-control"
+  .labeled-item
+    = f.label :nursery_name, class:"label label-info"
+    = f.text_field :nursery_name, class:"form-control"
+  .labeled-item
+    = f.label :postal_code, class:"label label-info"
+    = f.text_field :postal_code, class:"form-control"
+  .labeled-item
+    = f.label :address1, class:"label label-info"
+    = f.text_field :address1, class:"form-control"
+  .labeled-item
+    = f.label :address2, class:"label label-info"
+    = f.text_field :address2, class:"form-control"
+  .labeled-item
+    = f.label :phone, class:"label label-info"
+    = f.text_field :phone, class:"form-control"
+  .labeled-item
+    = f.label :fax, class:"label label-info"
+    = f.text_field :fax, class:"form-control"
+  .labeled-item
+    = f.label :email, class:"label label-info"
+    = f.text_field :email, class:"form-control"
+  .labeled-item
+    = f.label :responder, class:"label label-info"
+    = f.text_field :responder, class:"form-control"
+  .labeled-item
+    = f.label :coupon_code, class:"label label-info"
+    = f.text_field :coupon_code, class:"form-control"
+  .actions
+    = f.submit t("action.save"), class:"btn btn-edit"

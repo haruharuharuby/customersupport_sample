@@ -1,0 +1,85 @@
+= f.fields_for :organization do |org|
+  .sub-contents
+    .row
+      .col-lg-2.col-md-3
+        = org.label :name, class: "label label-info fixed-width"
+      .col-lg-10.col-md-9
+        = org.text_field :name, value: nursery.organization.name, readonly: readonly, class: "form-control search-organization-result"
+  .sub-contents
+    .row
+      .col-lg-2.col-md-3
+        = org.label :kana, class: "label label-info fixed-width"
+      .col-lg-10.col-md-9
+        = org.text_field :kana, value: nursery.organization.kana, readonly: readonly, class: "form-control search-organization-result"
+
+.sub-contents
+  .row
+    .col-lg-2.col-md-3
+      = f.label :name, class: "label label-info fixed-width"
+    .col-lg-10.col-md-9
+      = f.text_field :name, value: nursery.name, readonly: readonly, class: "form-control search-nursery-result"
+.sub-contents
+  .row
+    .col-lg-2.col-md-3
+      = f.label :kana, class: "label label-info fixed-width"
+    .col-lg-10.col-md-9
+      = f.text_field :kana, value: nursery.kana, readonly: readonly, class: "form-control search-nursery-result"
+.sub-contents
+  .row
+    .col-lg-2.col-md-3
+      = f.label :postal_code, class: "label label-info fixed-width"
+    .col-lg-10.col-md-9
+      = f.text_field :postal_code, value: nursery.postal_code, readonly: readonly, class: "form-control search-nursery-result", id: "#{id_prefix}_automate_nursery_attributes_postal_code"
+.sub-contents
+  .row
+    .col-lg-2.col-md-3
+      = f.label :address1, class: "label label-info fixed-width"
+    .col-lg-10.col-md-9
+      = f.text_field :address1, value: nursery.address1, readonly: readonly, class: "form-control search-nursery-result", id: "#{id_prefix}_automate_nursery_attributes_address1"
+.sub-contents
+  .row
+    .col-lg-2.col-md-3
+      = f.label :address2, class: "label label-info fixed-width"
+    .col-lg-10.col-md-9
+      = f.text_field :address2, value: nursery.address2, readonly: readonly, class: "form-control search-nursery-result", id: "#{id_prefix}_automate_nursery_attributes_address2"
+.sub-contents
+  .row
+    .col-lg-2.col-md-3
+      = f.label :phone, class: "label label-info fixed-width"
+    .col-lg-10.col-md-9
+      = f.text_field :phone, value: nursery.phone, readonly: readonly, class: "form-control search-nursery-result"
+.sub-contents
+  .row
+    .col-lg-2.col-md-3
+      = f.label :fax, class: "label label-info fixed-width"
+    .col-lg-10.col-md-9
+      = f.text_field :phone, value: nursery.fax, readonly: readonly, class: "form-control search-nursery-result"
+.sub-contents
+  .row
+    .col-lg-2.col-md-3
+      = f.label :email, class: "label label-info fixed-width"
+    .col-lg-10.col-md-9
+      = f.text_field :email, value: nursery.email, readonly: readonly, class: "form-control search-nursery-result"
+.sub-contents
+  .row
+    .col-lg-2.col-md-3
+      = f.label :responder, class: "label label-info fixed-width"
+    .col-lg-10.col-md-9
+      = f.text_field :responder, value: nursery.responder, readonly: readonly, class: "form-control search-nursery-result"
+-# .sub-contents
+-#   .row
+-#     .col-lg-2.col-md-3
+-#       = f.label :dm_number, class: "label label-info fixed-width"
+-#     .col-lg-10.col-md-9
+-#       = f.text_field :dm_number, readonly: true, value: nursery.dm_number, class: "form-control search-nursery-result"
+-#       %small= t("nursery.dm_number_empty_explain") unless nursery.dm_number
+-# .sub-contents
+-#   .row
+-#     .col-lg-2.col-md-3
+-#       = f.label :status, class: "label label-info fixed-width"
+-#     .col-lg-10.col-md-9
+-#       = f.select :status, Hash[[Nursery.statuses_i18n.invert.keys[0..1], Nursery.statuses.keys[0..1]].transpose], {}, value: nursery.status_i18n, class: "form-control search-nursery-result"
+= f.hidden_field :csp_id
+= f.hidden_field :organization_id
+= f.hidden_field :dm_number
+= f.hidden_field :status

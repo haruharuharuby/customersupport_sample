@@ -1,0 +1,40 @@
+= form_for nursery do |f|
+  .labeled-item
+    = f.label :name, class:"label label-info"
+    = f.text_field :name, class:"form-control"
+  %span.p-country-name Japan
+  .labeled-item
+    = f.label :postal_code, class:"label label-info"
+    = f.text_field :postal_code, class:"form-control postal-code", data:{turbolinks:"false"}
+  .labeled-item
+    = f.label :address1, class:"label label-info"
+    = f.text_field :address1, class:"form-control address"
+  .labeled-item
+    = f.label :address2, class:"label label-info"
+    = f.text_field :address2, class:"form-control"
+  .labeled-item
+    = f.label :email, class:"label label-info"
+    = f.text_field :email, class:"form-control"
+  .reference
+    = f.hidden_field :csp_id
+    = f.hidden_field :organization_id
+  %p
+  .privacy
+    .policy-document.panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          = link_to "#privacy-detail", data:{toggle: "collapse"} do
+            個人情報保護方針について
+            %span.caret
+      #privacy-detail.panel-collapse.collapse
+        .panel-body
+          お預かりするお客様の個人情報は、弊社の『 個人情報保護管理規定 』に基いて厳重に管理し、お客様の同意がない限りお問い合わせ・ご相談への対応以外には使用いたしません。お問い合わせ・ご相談内容に応じて、後日、各担当者より電話またはメールにてご回答させていただきます。
+          尚、上記フォームのご利用に際しまして「
+          = link_to "プライバシーポリシー","https://admcom.co.jp/company/privacy.php"
+          」にご同意いただく必要がございますことを予めご了承下さい。
+  .privacy-policy-aggreement
+    = check_box_tag "privacy"
+    %label= "プライバシーポリシーに同意する。"
+  %p
+  .actions
+    = f.submit t("action.request_catalog"), disabled:true, class:"btn btn-edit"

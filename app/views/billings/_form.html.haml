@@ -1,0 +1,7 @@
+= render partial: "application/model_alert", locals:{object: billing}
+
+= form_for billing do |f|
+  = f.fields_for :nursery do |n|
+    = render partial: "form/nursery", locals: {f:n, nursery: billing.nursery, readonly: false, id_prefix: ""}
+  .actions
+    = f.submit t("action.modify"), class:"btn btn-edit"

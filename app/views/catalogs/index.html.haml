@@ -1,0 +1,39 @@
+%h1 Listing catalogs
+
+%table
+  %thead
+    %tr
+      %th Dm number
+      %th Nursery name
+      %th Postal code
+      %th Address1
+      %th Address2
+      %th Phone
+      %th Email
+      %th Responder
+      %th Nursery
+      %th Product
+      %th
+      %th
+      %th
+
+  %tbody
+    - @catalogs.each do |catalog|
+      %tr
+        %td= catalog.dm_number
+        %td= catalog.nursery_name
+        %td= catalog.postal_code
+        %td= catalog.address1
+        %td= catalog.address2
+        %td= catalog.phone
+        %td= catalog.email
+        %td= catalog.responder
+        %td= catalog.nursery_id
+        %td= catalog.product_id
+        %td= link_to 'Show', catalog
+        %td= link_to 'Edit', edit_catalog_path(catalog)
+        %td= link_to 'Destroy', catalog, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Catalog', new_catalog_path

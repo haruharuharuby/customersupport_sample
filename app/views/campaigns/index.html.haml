@@ -1,0 +1,24 @@
+.header.contents
+  .container
+    .row
+      .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2
+        %h2= t("campaign.list")
+
+.container
+  .row
+    .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2
+      %table.table.table-responsive.table-hover
+        %thead
+          %tr
+            %th= t("campaign.name")
+            %th= t("campaign.term")
+            %th= t("campaign.description")
+            %th
+
+        %tbody
+          - @campaigns.each do |campaign|
+            %tr
+              %td= campaign.name
+              %td= campaign.term_end
+              %td= campaign.description
+              %td= link_to t("action.check"), campaign

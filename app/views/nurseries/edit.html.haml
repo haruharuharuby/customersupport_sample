@@ -1,0 +1,6 @@
+.container
+  .row
+    .col-xs-12
+      .content-header
+        %h2=fa_icon "edit", text:t("action.edit")
+      = render partial:'form', locals:{ nursery: @nursery }

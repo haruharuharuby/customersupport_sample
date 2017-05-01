@@ -1,0 +1,12 @@
+%nav.navbar.contents_navbar
+  %ul.nav.nav-pills.nav-justified
+    - contents_navigation.each do |content|
+      %li.dropdown
+        = link_to content[:path], data:{toggle:"dropdown"} do
+          %span=fa_icon content[:icon]
+          = content[:display]
+          %span.caret
+        %ul.dropdown-menu
+          - content[:children].each do |child|
+            %li
+              = link_to child[:display], child[:path]

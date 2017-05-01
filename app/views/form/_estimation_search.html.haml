@@ -1,0 +1,16 @@
+.panel.panel-default
+  .panel-heading
+    %h4.panel-title
+      = link_to "#estimation-search", data:{toggle: "collapse"} do
+        = t("estimation.search")
+        %span.caret
+      %small=t("estimation.search_explain")
+  #estimation-search.panel-collapse.collapse
+    .panel-body
+      .estimation-search-message-container.contents.alert.alert-danger
+      = form_for :estimation do |f|
+        .contents
+          = render partial: "form/input_tag", locals:{type:"text_field_tag", name:"uuid", caption: t("estimation.uuid")}
+        .actions
+          %p
+          = button_tag t("action.search"), {type:"button", class: "btn btn-warning", id:"search-by-estimation-submit"}

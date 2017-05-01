@@ -1,0 +1,41 @@
+%h1 Listing estimations
+
+%table
+  %thead
+    %tr
+      %th Dm number
+      %th Nursery name
+      %th Postal code
+      %th Address1
+      %th Address2
+      %th Phone
+      %th Email
+      %th Responder
+      %th Nursery
+      %th Total sum
+      %th Coupon code
+      %th
+      %th
+      %th
+
+  %tbody
+    - @estimations.each do |estimation|
+      %tr
+        %td= estimation.dm_number
+        %td= estimation.nursery_name
+        %td= estimation.postal_code
+        %td= estimation.address1
+        %td= estimation.address2
+        %td= estimation.phone
+        %td= estimation.email
+        %td= estimation.responder
+        %td= estimation.nursery_id
+        %td= estimation.total_sum
+        %td= estimation.coupon_code
+        %td= link_to 'Show', estimation
+        %td= link_to 'Edit', edit_estimation_path(estimation)
+        %td= link_to 'Destroy', estimation, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Estimation', new_estimation_path

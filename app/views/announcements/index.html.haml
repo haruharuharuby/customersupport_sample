@@ -1,0 +1,25 @@
+.container
+  .row
+    .col-xs-12
+      .content-header
+        %h2= fa_icon "info-circle", text:t("announcement.header")
+
+      %table.table.table-responsive.table-hover
+        %thead
+          %tr
+            %th= t("announcement.title")
+            %th= t("announcement.created_at")
+            %th= t("announcement.content")
+
+        %tbody
+          - @announcements.each do |announcement|
+            %tr
+              %td= announcement.title
+              %td= announcement.display_date
+              %td= link_to t("announcement.show"), announcement
+              -# %td= link_to 'Edit', edit_announcement_path(announcement)
+              -# %td= link_to 'Destroy', announcement, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+      -# %br
+
+      -# = link_to 'New Announcement', new_announcement_path

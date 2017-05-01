@@ -1,0 +1,8 @@
+= form_for nursery do |f|
+  = render partial: "form/nursery", locals: {f: f, nursery: nursery, readonly: false, id_prefix: ""}
+  .reference
+    = f.hidden_field :csp_id
+    = f.hidden_field :organization_id
+    = f.hidden_field :billing_id
+  .actions
+    = f.submit t("action.save"), class:"btn btn-edit"

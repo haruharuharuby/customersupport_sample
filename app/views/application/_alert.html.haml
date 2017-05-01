@@ -1,0 +1,11 @@
+.msg
+
+  - if notice
+    = content_tag :div, class:"alert alert-success" do
+      = link_to "x", "#", class: "close", data:{dismiss:"alert"}
+      = notice
+
+  - if alert
+    = content_tag :div, class:"alert alert-danger" do
+      = link_to "x", "#", class: "close", data:{dismiss:"alert"}
+      = alert

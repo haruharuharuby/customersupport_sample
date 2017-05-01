@@ -1,0 +1,13 @@
+.header.contents
+  .container
+    .row
+      .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2
+        %h2= t("catalog.order_completed")
+
+.container
+  .row.contents
+    .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2
+      = t ("catalog.thankyou")
+  .row
+    .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2
+      = link_to t("action.back"), new_catalog_path, class: "btn btn-success"

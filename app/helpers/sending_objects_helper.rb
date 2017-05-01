@@ -1,0 +1,2 @@
+module SendingObjectsHelper
+end

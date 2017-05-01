@@ -1,0 +1,101 @@
+%h1 Listing orders
+
+%table
+  %thead
+    %tr
+      %th Org nursery name
+      %th Org nursery kana
+      %th Nursery name
+      %th Nursery kana
+      %th Nursery postal
+      %th Nursery addr1
+      %th Nursery addr2
+      %th Nursery phone
+      %th Nursery fax
+      %th Nursery email
+      %th Nursery responder name
+      %th Nursery responder kana
+      %th Is first order
+      %th Same org other nursery name
+      %th Same org other nursery phone
+      %th Is ship to nursery
+      %th Shipping name
+      %th Shipping kana
+      %th Shipping postal
+      %th Shipping addr1
+      %th Shipping addr2
+      %th Shipping phone
+      %th Shipping responder name
+      %th Shipping responder kana
+      %th Billing ship to
+      %th Billing shipping name
+      %th Billing shipping kana
+      %th Billing shipping postal
+      %th Billing shipping addr1
+      %th Billing shipping addr2
+      %th Billing shipping phone
+      %th Billing responder name
+      %th Billing responder kana
+      %th Billing name option
+      %th Nursery condition
+      %th Shipping option
+      %th Contact name
+      %th Contact responder name
+      %th Contact phone
+      %th Contact email
+      %th Request
+      %th
+      %th
+      %th
+
+  %tbody
+    - @orders.each do |order|
+      %tr
+        %td= order.org_nursery_name
+        %td= order.org_nursery_kana
+        %td= order.nursery_name
+        %td= order.nursery_kana
+        %td= order.nursery_postal
+        %td= order.nursery_addr1
+        %td= order.nursery_addr2
+        %td= order.nursery_phone
+        %td= order.nursery_fax
+        %td= order.nursery_email
+        %td= order.nursery_responder_name
+        %td= order.nursery_responder_kana
+        %td= order.is_first_order
+        %td= order.same_org_other_nursery_name
+        %td= order.same_org_other_nursery_phone
+        %td= order.is_ship_to_nursery
+        %td= order.shipping_name
+        %td= order.shipping_kana
+        %td= order.shipping_postal
+        %td= order.shipping_addr1
+        %td= order.shipping_addr2
+        %td= order.shipping_phone
+        %td= order.shipping_responder_name
+        %td= order.shipping_responder_kana
+        %td= order.billing_ship_to
+        %td= order.billing_shipping_name
+        %td= order.billing_shipping_kana
+        %td= order.billing_shipping_postal
+        %td= order.billing_shipping_addr1
+        %td= order.billing_shipping_addr2
+        %td= order.billing_shipping_phone
+        %td= order.billing_responder_name
+        %td= order.billing_responder_kana
+        %td= order.billing_name_option
+        %td= order.nursery_condition
+        %td= order.shipping_option
+        %td= order.contact_name
+        %td= order.contact_kana
+        %td= order.contact_phone
+        %td= order.contact_email
+        %td= order.request
+        %td= link_to 'Show', order
+        %td= link_to 'Edit', edit_order_path(order)
+        %td= link_to 'Destroy', order, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Order', new_order_path

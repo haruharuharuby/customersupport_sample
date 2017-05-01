@@ -1,0 +1,28 @@
+%h1 Listing csps
+
+%table
+  %thead
+    %tr
+      %th Csp number
+      %th Nursery
+      %th Begin
+      %th End
+      %th Dm number
+      %th Password
+
+  %tbody
+    - @csps.each do |csp|
+      %tr
+        %td= csp.number
+        %td= csp.nursery_id
+        %td= csp.period_begin
+        %td= csp.period_end
+        %td= csp.dm_number
+        %td= csp.password
+        %td= link_to 'Show', csp
+        %td= link_to 'Edit', edit_csp_path(csp)
+        %td= link_to 'Destroy', csp, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Csp', new_csp_path

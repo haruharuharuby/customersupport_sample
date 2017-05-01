@@ -1,0 +1,104 @@
+.container
+  .row
+    .col-xs-12
+      .content-header
+        %h2=fa_icon "medkit", text:t("csp.header")
+      .nursery.contents
+        %h3= t("nursery.header2")
+
+        %small.block-text
+          = t("explanation.lack_information_nursery")
+        .sub-contents
+          .row
+            .col-lg-2.col-md-3
+              %label.label.label-info.fixed-width
+                = t("nursery.name")
+            .col-lg-10.col-md-9.label-value
+              = @nursery.name
+        .sub-contents
+          .row
+            .col-lg-2.col-md-3
+              %label.label.label-info.fixed-width
+                = t("nursery.kana")
+            .col-lg-10.col-md-9.label-value
+              = @nursery.kana
+        .sub-contents
+          .row
+            .col-lg-2.col-md-3
+              %label.label.label-info.fixed-width
+                = t("nursery.organization.name")
+            .col-lg-10.col-md-9.label-value
+              = @nursery.organization ? @nursery.organization.name : t("nursery.not_belongs_to_organization")
+              = link_to t("action.register_organization"), new_organization_path(@nursery), class: "btn btn-primary" unless @nursery.organization
+        .sub-contents
+          .row
+            .col-lg-2.col-md-3
+              %label.label.label-info.fixed-width
+                = t("nursery.organization.kana")
+            .col-lg-10.col-md-9.label-value
+              = @nursery.organization ? @nursery.organization.kana : t("nursery.not_belongs_to_organization")
+        .sub-contents
+          .row
+            .col-lg-2.col-md-3
+              %label.label.label-info.fixed-width
+                = t("nursery.postal_code")
+            .col-lg-10.col-md-9.label-value
+              = @nursery.postal_code
+        .sub-contents
+          .row
+            .col-lg-2.col-md-3
+              %label.label.label-info.fixed-width
+                = t("nursery.address1")
+            .col-lg-10.col-md-9.label-value
+              = @nursery.address1
+        .sub-contents
+          .row
+            .col-lg-2.col-md-3
+              %label.label.label-info.fixed-width
+                = t("nursery.address2")
+            .col-lg-10.col-md-9.label-value
+              = @nursery.address2
+        .sub-contents
+          .row
+            .col-lg-2.col-md-3
+              %label.label.label-info.fixed-width
+                = t("nursery.phone")
+            .col-lg-10.col-md-9.label-value
+              = @nursery.phone
+        .sub-contents
+          .row
+            .col-lg-2.col-md-3
+              %label.label.label-info.fixed-width
+                = t("nursery.fax")
+            .col-lg-10.col-md-9.label-value
+              = @nursery.fax
+        .sub-contents
+          .row
+            .col-lg-2.col-md-3
+              %label.label.label-info.fixed-width
+                = t("nursery.email")
+            .col-lg-10.col-md-9.label-value
+              = @nursery.email
+        .sub-contents
+          .row
+            .col-lg-2.col-md-3
+              %label.label.label-info.fixed-width
+                = t("nursery.responder")
+            .col-lg-10.col-md-9.label-value
+              = @nursery.responder
+        .sub-contents
+          .row
+            .col-lg-2.col-md-3
+              %label.label.label-info.fixed-width
+                = t("nursery.status")
+            .col-lg-10.col-md-9.label-value
+              = @nursery.status_i18n
+        .sub-contents
+          .row
+            .col-lg-2.col-md-3
+              %label.label.label-info.fixed-width
+                = t("nursery.dm_number")
+            .col-lg-10.col-md-9.label-value
+              = @nursery.dm_number
+
+        = link_to t('action.edit'), edit_nursery_path(@nursery), class:"btn btn-edit"

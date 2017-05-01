@@ -1,0 +1,25 @@
+.header
+  .container
+    .row
+      .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2
+        %h2= t("order.header3")
+.container
+  .row.contents
+    .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2
+      %h2= t("order.step2_completed")
+
+  .row.contents
+    .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2
+      = render partial: "progress", locals: {active: "3"}
+    .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2
+      = render partial: "steps", locals: {caption: false}
+
+  .row
+    .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2
+      .explanation.contents
+        %small= t("order.thankyou")
+
+  .row
+    .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2
+      .back_button.text-center
+        = link_to t("action.back_to_order_top"), 'https://admcom.co.jp/shop/index.php', class: "btn btn-success"

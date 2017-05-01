@@ -1,0 +1,10 @@
+.container
+  .row
+    .col-xs-12
+      .content-header
+        %h2= fa_icon "envelope", text:t("contact.header")
+      .content
+        = render partial:"labeled_item", locals:{ label:"contact.name", value:@contact.name }
+        = render partial:"labeled_item", locals:{ label:"contact.title", value:@contact.title }
+        = render partial:"labeled_item", locals:{ label:"contact.email", value:@contact.email }
+        = render partial:"labeled_item", locals:{ label:"contact.content", value:@contact.content }

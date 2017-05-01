@@ -1,0 +1,133 @@
+= form_for @order do |f|
+  - if @order.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@order.errors.count, "error")} prohibited this order from being saved:"
+      %ul
+        - @order.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :org_nursery_name
+    = f.text_field :org_nursery_name
+  .field
+    = f.label :org_nursery_kana
+    = f.text_field :org_nursery_kana
+  .field
+    = f.label :nursery_name
+    = f.text_field :nursery_name
+  .field
+    = f.label :nursery_kana
+    = f.text_field :nursery_kana
+  .field
+    = f.label :nursery_postal
+    = f.text_field :nursery_postal
+  .field
+    = f.label :nursery_addr1
+    = f.text_field :nursery_addr1
+  .field
+    = f.label :nursery_addr2
+    = f.text_field :nursery_addr2
+  .field
+    = f.label :nursery_phone
+    = f.number_field :nursery_phone
+  .field
+    = f.label :nursery_fax
+    = f.number_field :nursery_fax
+  .field
+    = f.label :nursery_email
+    = f.text_field :nursery_email
+  .field
+    = f.label :nursery_responder_name
+    = f.text_field :nursery_responder_name
+  .field
+    = f.label :nursery_responder_kana
+    = f.text_field :nursery_responder_kana
+  .field
+    = f.label :is_first_order
+    = f.check_box :is_first_order
+  .field
+    = f.label :same_org_other_nursery_name
+    = f.text_field :same_org_other_nursery_name
+  .field
+    = f.label :same_org_other_nursery_phone
+    = f.number_field :same_org_other_nursery_phone
+  .field
+    = f.label :is_ship_to_nursery
+    = f.check_box :is_ship_to_nursery
+  .field
+    = f.label :shipping_name
+    = f.text_field :shipping_name
+  .field
+    = f.label :shipping_kana
+    = f.text_field :shipping_kana
+  .field
+    = f.label :shipping_postal
+    = f.text_field :shipping_postal
+  .field
+    = f.label :shipping_addr1
+    = f.text_field :shipping_addr1
+  .field
+    = f.label :shipping_addr2
+    = f.text_field :shipping_addr2
+  .field
+    = f.label :shipping_phone
+    = f.number_field :shipping_phone
+  .field
+    = f.label :shipping_responder_name
+    = f.text_field :shipping_responder_name
+  .field
+    = f.label :shipping_responder_kana
+    = f.text_field :shipping_responder_kana
+  .field
+    = f.label :billing_ship_to
+    = f.number_field :billing_ship_to
+  .field
+    = f.label :billing_shipping_name
+    = f.text_field :billing_shipping_name
+  .field
+    = f.label :billing_shipping_kana
+    = f.text_field :billing_shipping_kana
+  .field
+    = f.label :billing_shipping_postal
+    = f.text_field :billing_shipping_postal
+  .field
+    = f.label :billing_shipping_addr1
+    = f.text_field :billing_shipping_addr1
+  .field
+    = f.label :billing_shipping_addr2
+    = f.text_field :billing_shipping_addr2
+  .field
+    = f.label :billing_shipping_phone
+    = f.number_field :billing_shipping_phone
+  .field
+    = f.label :billing_responder_name
+    = f.text_field :billing_responder_name
+  .field
+    = f.label :billing_responder_kana
+    = f.text_field :billing_responder_kana
+  .field
+    = f.label :billing_name_option
+    = f.number_field :billing_name_option
+  .field
+    = f.label :nursery_condition
+    = f.number_field :nursery_condition
+  .field
+    = f.label :shipping_option
+    = f.number_field :shipping_option
+  .field
+    = f.label :contact_name
+    = f.text_field :contact_name
+  .field
+    = f.label :contact_kana
+    = f.text_field :contact_kana
+  .field
+    = f.label :contact_phone
+    = f.number_field :contact_phone
+  .field
+    = f.label :contact_email
+    = f.text_field :contact_email
+  .field
+    = f.label :request
+    = f.text_area :request
+  .actions
+    = f.submit 'Save'

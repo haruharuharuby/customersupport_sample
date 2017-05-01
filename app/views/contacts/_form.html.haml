@@ -1,0 +1,17 @@
+= form_for contact, html:{ class:"h-adr" } do |f|
+  .labeled-item
+    = f.label :name, class:"label label-info"
+    = f.text_field :name, class:"form-control"
+  .labeled-item
+    = f.label :email, class:"label label-info"
+    = f.text_field :email, class:"form-control", placeholder:(t "contact.email_notice")
+    .note
+      %small=(t "contact.email_notice")
+  .labeled-item
+    = f.label :title, class:"label label-info"
+    = f.text_field :title, class:"form-control"
+  .labeled-item
+    = f.label :content, class:"label label-info"
+    = f.text_area :content, class:"form-control"
+  .actions
+    = f.submit t("action.question"), class:"btn btn-edit"

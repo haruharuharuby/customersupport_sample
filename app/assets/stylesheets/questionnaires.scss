@@ -1,0 +1,39 @@
+// Place all the styles related to the questionnaires controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.panel-heading {
+  background-color: #D0F5A9;
+  border-radius: 5px;
+}
+
+// .form-group {
+//   margin-left: 10px;
+//   input[type="checkbox"], input[type="radio"] {
+//     display: none;
+//     & + .btn-group > label span {
+//       width: 20px;
+//       &:first-child {
+//         display: none;
+//       }
+//       &:last-child {
+//         display: inline-block;
+//       }
+//     }
+//     &:checked {
+//       & + .btn-group > label span {
+//         &:first-child {
+//           display: inline-block;;
+//         }
+//         &:last-child {
+//           display: none;
+//         }
+//       }
+//     }
+//   }
+//   .btn-white{
+//     background-color: #F2F2F2;
+//     &:hover{
+//       background-color: #D0F5A9;
+//     }
+//   }
+// }

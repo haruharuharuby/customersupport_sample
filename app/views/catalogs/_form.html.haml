@@ -1,0 +1,61 @@
+= form_for @catalog do |f|
+  = render partial: "application/model_alert", locals: {object: @catalog}
+  - if @catalog.confirming.blank?
+    .destination.contents.search-reflection
+      %h3= t("catalog.destination")
+      = f.fields_for :nursery do |n|
+        = render partial: "form/nursery", locals: {f:n, nursery: @catalog.nursery, readonly: false, id_prefix: ""}
+      .sub-contents
+        .row
+          .col-lg-2.col-md-3
+            = f.label :question, class: "label label-info fixed-width"
+          .col-lg-10.col-md-9
+            = f.text_field :question, class: "form-control"
+
+    .questionnaire.contents
+      .panel.panel-default
+        .panel-heading
+          %h3.panel-title
+            = link_to "#questionnaire-detail", data:{toggle: "collapse"} do
+              = t("catalog.questionnaire")
+              %span.caret
+        #questionnaire-detail.panel-collapse.collapse
+          .panel-body
+            %p= f.label t("questionnaire.where_do_you_know"), for:"questionnaire", class:"label label-info"
+            %p= f.select :answer_of_questionnaire, @catalog.selections.invert, {}, class: "form-control", id:"questionnaire"
+    .hidden
+      = f.hidden_field :product_id, class: "form-control"
+      = f.hidden_field :confirming
+    .other
+      = render partial: "form/privacy"
+    .actions
+      = f.submit t("action.confirm"), class: "btn btn-success", id:"request-catalog-confirm"
+
+
+  -else
+    .destination.contents
+      %h3= t("catalog.destination")
+      = f.fields_for :nursery do |n|
+        = render partial: "form/nursery", locals: {f:n, nursery: @catalog.nursery, readonly: true, id_prefix: ""}
+      .sub-contents
+        .row
+          .col-lg-2.col-md-3
+            = f.label :question, class: "label label-info fixed-width"
+          .col-lg-10.col-md-9
+            = f.text_field :question, readonly: true, class: "form-control"
+
+    .questionnaire.contents
+      .panel.panel-default
+        .panel-heading
+          %h3.panel-title
+            = t("catalog.questionnaire_answer")
+        .panel-body
+          %p= f.label t("questionnaire.where_do_you_know"), for:"questionnaire", class:"label label-info"
+          %p= @catalog.selections[@catalog.answer_of_questionnaire]
+          = f.hidden_field :answer_of_questionnaire
+    .other
+      .hidden
+        = f.hidden_field :product_id, class: "form-control"
+        = f.hidden_field :confirming
+    .actions
+      = f.submit t("action.request_catalog"), class: "btn btn-success", id:"request-catalog"

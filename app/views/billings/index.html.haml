@@ -1,0 +1,35 @@
+%h1 Listing billings
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Kana
+      %th Postal code
+      %th Address1
+      %th Address2
+      %th Phone
+      %th Fax
+      %th Billing type
+      %th
+      %th
+      %th
+
+  %tbody
+    - @billings.each do |billing|
+      %tr
+        %td= billing.name
+        %td= billing.kana
+        %td= billing.postal_code
+        %td= billing.address1
+        %td= billing.address2
+        %td= billing.phone
+        %td= billing.fax
+        %td= billing.billing_type
+        %td= link_to 'Show', billing
+        %td= link_to 'Edit', edit_billing_path(billing)
+        %td= link_to 'Destroy', billing, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Billing', new_billing_path

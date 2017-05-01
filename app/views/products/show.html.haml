@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @product.name
+%p
+  %b Price:
+  = @product.price
+%p
+  %b Support begin:
+  = @product.support_begin
+%p
+  %b Support end:
+  = @product.support_end
+%p
+  %b Version:
+  = @product.version
+
+= link_to 'Edit', edit_product_path(@product)
+\|
+= link_to 'Back', products_path

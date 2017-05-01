@@ -1,0 +1,19 @@
+.header.contents
+  .container
+    .row
+      .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2
+        %h2= t "campaign.#{@campaign.name}"
+
+.container
+  .row
+    .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2
+      .explanation.contents
+        %small= t("campaign.#{@campaign.description}")
+
+      .questionnaires.contents
+        = form_for @campaign do |f|
+          = render partial: "application/model_alert", locals: {object: @campaign}
+          = render partial: "questions", locals: {f: f}
+          = f.submit t("action.send"), class: "btn btn-warning"
+      .contents
+        = link_to '戻る', campaigns_path, class: "btn btn-success"

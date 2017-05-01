@@ -1,0 +1,80 @@
+= bootstrap_form_for @questionnaire, url: {action: 'create'} do |f|
+  = render partial: "application/model_alert", locals: {object: @questionnaire}
+
+  .hidden
+    = f.hidden_field :order_id, value: @order.id
+
+  .contents.panel
+    .panel-heading
+      %h3.panel-title= f.label :item1, t("activerecord.attributes.questionnaire.item1")
+    .panel-body
+      = f.check_box :item1_check1, label: t("activerecord.attributes.questionnaire.item1_check1")
+      = f.check_box :item1_check2, label: t("activerecord.attributes.questionnaire.item1_check2")
+      = f.check_box :item1_check3, label: t("activerecord.attributes.questionnaire.item1_check3")
+      = f.check_box :item1_check4, label: t("activerecord.attributes.questionnaire.item1_check4")
+      = f.check_box :item1_check5, label: t("activerecord.attributes.questionnaire.item1_check5")
+      = f.check_box :item1_check6, label: t("activerecord.attributes.questionnaire.item1_check6")
+      = f.check_box :item1_check7, label: t("activerecord.attributes.questionnaire.item1_check7")
+      = f.text_field :item1_text, hide_label: true
+
+    .panel-heading
+      %h3.panel-title= f.label :item2, t("activerecord.attributes.questionnaire.item2")
+    .panel-body
+      = f.form_group :item2_radio do
+        = f.radio_button :item2_radio, 1, label: t("activerecord.attributes.questionnaire.item2_radio1")
+        = f.text_field :item2_text, hide_label: true
+        = f.radio_button :item2_radio, 2, label: t("activerecord.attributes.questionnaire.item2_radio2")
+
+    .panel-heading
+      %h3.panel-title= f.label :item3, t("activerecord.attributes.questionnaire.item3")
+    .panel-body
+      = f.form_group :item3_radio do
+        = f.radio_button :item3_radio, 1, label: t("activerecord.attributes.questionnaire.item3_radio1")
+        = f.text_field :item3_text, hide_label: true
+        = f.radio_button :item3_radio, 2, label: t("activerecord.attributes.questionnaire.item3_radio2")
+
+    .panel-heading
+      %h3.panel-title= f.label :item4, t("activerecord.attributes.questionnaire.item4")
+    .panel-body
+      = f.check_box :item4_check1, label: t("activerecord.attributes.questionnaire.item4_check1")
+      = f.check_box :item4_check2, label: t("activerecord.attributes.questionnaire.item4_check2")
+      = f.check_box :item4_check3, label: t("activerecord.attributes.questionnaire.item4_check3")
+      = f.check_box :item4_check4, label: t("activerecord.attributes.questionnaire.item4_check4")
+      = f.check_box :item4_check5, label: t("activerecord.attributes.questionnaire.item4_check5")
+      = f.check_box :item4_check6, label: t("activerecord.attributes.questionnaire.item4_check6")
+      = f.check_box :item4_check7, label: t("activerecord.attributes.questionnaire.item4_check7")
+      = f.check_box :item4_check8, label: t("activerecord.attributes.questionnaire.item4_check8")
+      = f.check_box :item4_check9, label: t("activerecord.attributes.questionnaire.item4_check9")
+      = f.check_box :item4_check10, label: t("activerecord.attributes.questionnaire.item4_check10")
+      = f.text_field :item4_text, hide_label: true
+
+    .panel-heading
+      %h3.panel-title= f.label :item5, t("activerecord.attributes.questionnaire.item5")
+    .panel-body
+      = f.check_box :item5_check1, label: t("activerecord.attributes.questionnaire.item5_check1")
+      = f.check_box :item5_check2, label: t("activerecord.attributes.questionnaire.item5_check2")
+      = f.check_box :item5_check3, label: t("activerecord.attributes.questionnaire.item5_check3")
+      = f.check_box :item5_check4, label: t("activerecord.attributes.questionnaire.item5_check4")
+      = f.check_box :item5_check5, label: t("activerecord.attributes.questionnaire.item5_check5")
+      = f.check_box :item5_check6, label: t("activerecord.attributes.questionnaire.item5_check6")
+      = f.check_box :item5_check7, label: t("activerecord.attributes.questionnaire.item5_check7")
+      = f.check_box :item5_check8, label: t("activerecord.attributes.questionnaire.item5_check8")
+      = f.check_box :item5_check9, label: t("activerecord.attributes.questionnaire.item5_check9")
+      = f.check_box :item5_check10, label: t("activerecord.attributes.questionnaire.item5_check10")
+
+    .panel-heading
+      %h3.panel-title= f.label :item6, t("activerecord.attributes.questionnaire.item6")
+    .panel-body
+      = f.form_group :item6_radio do
+        = f.radio_button :item6_radio, 1, label: t("activerecord.attributes.questionnaire.item6_radio1")
+        = f.radio_button :item6_radio, 2, label: t("activerecord.attributes.questionnaire.item6_radio2")
+        = f.radio_button :item6_radio, 3, label: t("activerecord.attributes.questionnaire.item6_radio3")
+
+    .panel-heading
+      %h3.panel-title= f.label :item7, t("activerecord.attributes.questionnaire.item7")
+    .panel-body
+      = f.text_area :item7_text, hide_label: true
+
+
+  .actions
+    = f.submit t("action.send"), data:{ disable_with: t("action.sending") }, class: "btn btn-success"

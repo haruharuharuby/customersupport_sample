@@ -1,0 +1,29 @@
+= hidden_field_tag "tax_rate", Tax::RATE
+%table.table.table-responsive.table-hover
+  %thead
+    %tr
+      %th= t "product.name"
+      %th= t "product.version"
+      %th= t "product.quantity"
+      %th= t "product.unit"
+      %th= t "product.charge"
+  %tbody#product-estimation
+    = f.fields_for :estimation_details do |ed|
+      %tr
+        %td= f.label :product_name, ed.object.product.name
+        %td= ed.object.product.version
+        - max = estimation ? 10 : 1
+        %td= ed.number_field :quantity, min: 0, max: max, value: ed.object.quantity, class: "form-control quantity"
+        = ed.hidden_field :quantity, class: "quantity-value"
+        %td= ed.text_field :price, readonly: true, class: "form-control currency price", value: number_to_currency(ed.object.price)
+        %td= ed.text_field :charge, readonly: true, class: "form-control currency charge", value: number_to_currency(ed.object.charge)
+        = ed.hidden_field :product_id, value: ed.object.product.id
+        = ed.hidden_field :estimation_id, value: ed.object.estimation_id, class: "estimation_id"
+    %tr
+      %td
+        %strong=t "tax.consumption"
+      %td.text-right{colspan: 4}= f.text_field :tax, readonly: true, class: "form-control currency", value: number_to_currency(f.object.tax), id:"tax_consumption"
+    %tr
+      %td
+        %strong= t "estimation.sum"
+      %td.text-right{colspan: 4}= f.text_field :total, readonly: true, class: "form-control currency", value: number_to_currency(f.object.total), id:"total_charge"

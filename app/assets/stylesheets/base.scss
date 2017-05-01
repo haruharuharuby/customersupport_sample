@@ -1,0 +1,169 @@
+@import "font-awesome";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import 'bootstrap-datetimepicker';
+
+@import url(//fonts.googleapis.com/earlyaccess/notosansjapanese.css);
+
+$base-color: #F8E0E0;
+$header-font-color: #E6E6E6;
+$error-color: #FA5858;
+
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+td{
+  > a{
+    display: block;
+  }
+}
+
+a{
+  color: #848484;
+}
+
+.content-header{
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #D8D8D8;
+}
+
+.header{
+  background-color: $base-color;
+}
+.common-sidebar{
+  padding-top: 10px;
+  a{
+    font-family: 'Noto Sans Japanese', sans-serif;
+    display: block;
+    padding: 5px;
+    border-radius: 10px;
+    text-decoration: none;
+  }
+  a:hover{
+    color: #000080;
+    background-color: #BEF781;
+  }
+  .common-header-link{
+    display: inline-block;
+  }
+}
+
+.brand{
+  margin-top: 50px;
+  img{
+    width: 50%;
+    height: 50%;
+  }
+}
+.navbar-brand{
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.nav-justified{
+  background-color: $base-color;
+  > li{
+    height:100%;
+  }
+}
+
+.footer{
+  background-color: $base-color;
+  padding-top: 15px;
+  border-top: 1px solid #D8D8D8;
+}
+
+.fixed-width {
+  display: inline-block;
+  width: 100px;
+  margin-top: 1em;
+}
+
+.vcenter {
+  padding-top: 0.5em;
+}
+
+.main-content{
+  margin-bottom: 50px;
+}
+
+.btn-edit{
+  &:hover{
+    background-color: #BDBDBD;
+  }
+  margin: 5px 0 5px 0;
+  padding: 5px 15px 5px 15px;
+  background-color: #A9F5BC;
+}
+
+.block-text{
+  display: block;
+  padding: 5px 0 5px 0;
+}
+
+.field_with_errors {
+  input[type=text]{
+    border-color: #FE2E64;
+    border-style: solid;
+    border-width: 1px;
+  }
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff;
+  }
+
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}
+
+.contents {
+  margin-bottom: 2em;
+}
+
+.sub-contents {
+  margin-bottom: 1em;
+}
+
+.currency {
+  text-align: right;
+}
+
+.label-value{
+  padding-top: 7px;
+}

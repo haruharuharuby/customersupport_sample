@@ -1,0 +1,6 @@
+.msg
+  - if object.errors.any?
+    - object.errors.full_messages.each do |m|
+      = content_tag :div, class:"alert alert-warning" do
+        = link_to "x", "#", class: "close", data:{dismiss:"alert"}
+        = m

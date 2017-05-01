@@ -1,0 +1,45 @@
+FactoryGirl.define do
+  factory :order do
+    org_nursery_name "MyString"
+    org_nursery_kana "MyString"
+    nursery_name "MyString"
+    nursery_kana "MyString"
+    nursery_postal "MyString"
+    nursery_addr1 "MyString"
+    nursery_addr2 "MyString"
+    nursery_phone 1
+    nursery_fax 1
+    nursery_email "MyString"
+    nursery_responder_name "MyString"
+    nursery_responder_kana "MyString"
+    is_first_order false
+    same_org_other_nursery_name "MyString"
+    same_org_other_nursery_phone 1
+    is_ship_to_nursery false
+    shipping_name "MyString"
+    shipping_kana "MyString"
+    shipping_postal "MyString"
+    shipping_addr1 "MyString"
+    shipping_addr2 "MyString"
+    shipping_phone 1
+    shipping_responder_name "MyString"
+    shipping_responder_kana "MyString"
+    billing_ship_to 1
+    billing_shipping_name "MyString"
+    billing_shipping_kana "MyString"
+    billing_shipping_postal "MyString"
+    billing_shipping_addr1 "MyString"
+    billing_shipping_addr2 "MyString"
+    billing_shipping_phone 1
+    billing_responder_name "MyString"
+    billing_responder_kana "MyString"
+    billing_name_option 1
+    nursery_condition 1
+    shipping_option 1
+    contact_name "MyString"
+    contact_kana "MyString"
+    contact_phone 1
+    contact_email "MyString"
+    request "MyText"
+  end
+end

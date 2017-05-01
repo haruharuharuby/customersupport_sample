@@ -1,0 +1,10 @@
+%lg= t "coupon.lead_attaching"
+%p
+
+= f.label :coupon_code
+= f.text_field :coupon_code, class: "form-control"
+= f.button t("action.attach"), { type: 'button', id: "attach-coupon", class: "btn btn-primary" }
+= link_to t("campaign.do_you_know"), campaigns_path
+= f.hidden_field :coupon_attached, id:"coupon_attached"
+
+#message-coupon

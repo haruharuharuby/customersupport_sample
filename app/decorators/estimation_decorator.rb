@@ -1,0 +1,2 @@
+module EstimationDecorator
+end

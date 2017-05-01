@@ -1,0 +1,39 @@
+%p#notice= notice
+
+%p
+  %b Dm number:
+  = @estimation.dm_number
+%p
+  %b Nursery name:
+  = @estimation.nursery_name
+%p
+  %b Postal code:
+  = @estimation.postal_code
+%p
+  %b Address1:
+  = @estimation.address1
+%p
+  %b Address2:
+  = @estimation.address2
+%p
+  %b Phone:
+  = @estimation.phone
+%p
+  %b Email:
+  = @estimation.email
+%p
+  %b Responder:
+  = @estimation.responder
+%p
+  %b Nursery:
+  = @estimation.nursery_id
+%p
+  %b Total sum:
+  = @estimation.total_sum
+%p
+  %b Coupon code:
+  = @estimation.coupon_code
+
+= link_to 'Edit', edit_estimation_path(@estimation)
+\|
+= link_to 'Back', estimations_path

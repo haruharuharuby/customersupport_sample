@@ -1,0 +1,6 @@
+.order-step-box-title
+  %h5.text-center
+    %strong= "#{number} #{t(title)}"
+  - if caption
+    .order-step-box-body
+      = t(message)

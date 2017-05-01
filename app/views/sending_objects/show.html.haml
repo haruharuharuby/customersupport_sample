@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @sending_object.name
+%p
+  %b Nursery:
+  = @sending_object.nursery_id
+%p
+  %b Sended at:
+  = @sending_object.sended_at
+%p
+  %b Description:
+  = @sending_object.description
+
+= link_to 'Edit', edit_sending_object_path(@sending_object)
+\|
+= link_to 'Back', sending_objects_path

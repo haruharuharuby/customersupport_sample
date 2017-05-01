@@ -1,0 +1,32 @@
+= f.fields_for :questionnaires do |q|
+  .contents.panel
+    .panel-heading
+      %h3.panel-title= t("questionnaire.item_#{q.object.id}")
+      = q.hidden_field :campaign_id
+      = q.hidden_field :question_type
+    .panel-body
+      = q.fields_for :selection_items do |s|
+        = s.hidden_field :name
+        = s.hidden_field :element
+        - if s.object.element == "text_field"
+          .form-group.pull-left
+            = s.text_field :selected, value: s.object.selected, class: "form-control #{s.object.name}"
+        - elsif s.object.element == "text_area"
+          = s.text_area :selected, value: s.object.selected, class: "form-control #{s.object.name}"
+        - elsif s.object.element == "check_box"
+          .form-group.pull-left
+            = s.check_box :selected, checked: s.object.selected == "1", id:"#{q.object.name}_#{s.object.name}"
+            .btn-group
+              = s.label :name, for: "#{q.object.name}_#{s.object.name}", class: "btn btn-success" do
+                %span.glyphicon.glyphicon-ok
+                %span=""
+              = s.label t("selection_item.item_#{s.object.id}"), for: "#{q.object.name}_#{s.object.name}", class: "btn btn-defailt btn-white"
+        - elsif s.object.element == "radio_button"
+          .form-group.pull-left
+            = s.hidden_field :selected
+            = s.radio_button :selected, s.object.name, id: "#{q.object.name}_#{s.object.name}", name: q.object.name, checked: s.object.selected == "1"
+            .btn-group
+              = s.label :name, for: "#{q.object.name}_#{s.object.name}", class: "btn btn-success" do
+                %span.glyphicon.glyphicon-ok
+                %span=""
+              = s.label t("selection_item.item_#{s.object.id}"), for: "#{q.object.name}_#{s.object.name}", class: "btn btn-defailt btn-white"

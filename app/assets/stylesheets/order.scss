@@ -1,0 +1,102 @@
+// Place all the styles related to the order controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$screen-xs-max: 767px;
+$screen-sm-min: 768px;
+$screen-sm-max: 991px;
+$screen-md-min: 992px;
+$screen-md-max: 1199px;
+$screen-lg-min: 1200px;
+
+.info{
+  padding: 1px 0 6px 0;
+  border-radius: 3px;
+  margin: 10px 0 5px 0;
+}
+
+$order-step-box-border-active-color: #81F781;
+$order-step-box-bg-active-color: #E0F8E0;
+$order-step-box-border-color: #585858;
+$order-step-box-bg-color: #D8D8D8;
+$title-border-color: #31B404;
+$label-required-color: #F79F81;
+
+tr {
+  border-radius: 5px;
+}
+
+.step-bar {
+  counter-reset: step;
+
+  li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    a {
+      margin-left: -47px;
+      font-size: 30px;
+      color: #424242;
+    }
+    // border: 1px solid $order-step-box-border-color;
+  }
+  li:before {
+    border: 2px solid $order-step-box-border-color;
+    background-color: $order-step-box-bg-color;
+    border-radius: 50%;
+    content: "";
+    counter-increment: step;
+    // text-align: center;
+    // font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    // line-height: 30px;
+    // margin: 0 auto 10px auto;
+  }
+
+  li:after {
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: $order-step-box-bg-color;
+    position: absolute;
+    left: -50%;
+    z-index: -1;
+  }
+
+  li:first-child:after {
+    display: none;
+  }
+
+  li.active {
+      color: green;
+  }
+  li.active:before {
+      border-color: $order-step-box-border-active-color;
+      background-color: $order-step-box-bg-active-color;
+
+  }
+  li.active + li:after {
+      background-color: $order-step-box-bg-active-color;
+  }
+}
+
+.title {
+  border-bottom: 5px solid $title-border-color;
+}
+
+.sub-title {
+  border-bottom: 3px solid $title-border-color;
+}
+
+.confirm_text {
+  vertical-align: middle;
+  padding-top: 2px;
+}
+
+.required{
+  background-color: $label-required-color;
+}

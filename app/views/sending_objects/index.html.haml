@@ -1,0 +1,27 @@
+.container
+  .row
+    .col-xs-12
+      .content-header
+        %h2=fa_icon "envelope", text: t("sending_object.header")
+
+      %table.table.table-responsive.table-hover
+        %thead
+          %tr
+            %th= t("sending_object.name")
+            %th= t("sending_object.sended_at")
+            %th= t("sending_object.description")
+            %th= t("sending_object.links")
+
+        %tbody
+          - @sending_objects.each do |sending_object|
+            %tr
+              %td= sending_object.name
+              %td= sending_object.sended_at
+              %td= sending_object.description
+              %td= link_to sending_object.name, sending_object.links
+
+              -# %td= link_to 'Show', sending_object
+              -# %td= link_to 'Edit', edit_sending_object_path(sending_object)
+              -# %td= link_to 'Destroy', sending_object, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+      -# = link_to 'New Sending object', new_sending_object_path

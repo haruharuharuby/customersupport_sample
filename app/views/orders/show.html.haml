@@ -1,0 +1,129 @@
+%p#notice= notice
+
+%p
+  %b Org nursery name:
+  = @order.org_nursery_name
+%p
+  %b Org nursery kana:
+  = @order.org_nursery_kana
+%p
+  %b Nursery name:
+  = @order.nursery_name
+%p
+  %b Nursery kana:
+  = @order.nursery_kana
+%p
+  %b Nursery postal:
+  = @order.nursery_postal
+%p
+  %b Nursery addr1:
+  = @order.nursery_addr1
+%p
+  %b Nursery addr2:
+  = @order.nursery_addr2
+%p
+  %b Nursery phone:
+  = @order.nursery_phone
+%p
+  %b Nursery fax:
+  = @order.nursery_fax
+%p
+  %b Nursery email:
+  = @order.nursery_email
+%p
+  %b Nursery responder name:
+  = @order.nursery_responder_name
+%p
+  %b Nursery responder kana:
+  = @order.nursery_responder_kana
+%p
+  %b Is first order:
+  = @order.is_first_order
+%p
+  %b Same org other nursery name:
+  = @order.same_org_other_nursery_name
+%p
+  %b Same org other nursery phone:
+  = @order.same_org_other_nursery_phone
+%p
+  %b Is ship to nursery:
+  = @order.is_ship_to_nursery
+%p
+  %b Shipping name:
+  = @order.shipping_name
+%p
+  %b Shipping kana:
+  = @order.shipping_kana
+%p
+  %b Shipping postal:
+  = @order.shipping_postal
+%p
+  %b Shipping addr1:
+  = @order.shipping_addr1
+%p
+  %b Shipping addr2:
+  = @order.shipping_addr2
+%p
+  %b Shipping phone:
+  = @order.shipping_phone
+%p
+  %b Shipping responder name:
+  = @order.shipping_responder_name
+%p
+  %b Shipping responder kana:
+  = @order.shipping_responder_kana
+%p
+  %b Billing ship to:
+  = @order.billing_ship_to
+%p
+  %b Billing shipping name:
+  = @order.billing_shipping_name
+%p
+  %b Billing shipping kana:
+  = @order.billing_shipping_kana
+%p
+  %b Billing shipping postal:
+  = @order.billing_shipping_postal
+%p
+  %b Billing shipping addr1:
+  = @order.billing_shipping_addr1
+%p
+  %b Billing shipping addr2:
+  = @order.billing_shipping_addr2
+%p
+  %b Billing shipping phone:
+  = @order.billing_shipping_phone
+%p
+  %b Billing responder name:
+  = @order.billing_responder_name
+%p
+  %b Billing responder kana:
+  = @order.billing_responder_kana
+%p
+  %b Billing name option:
+  = @order.billing_name_option
+%p
+  %b Nursery condition:
+  = @order.nursery_condition
+%p
+  %b Shipping option:
+  = @order.shipping_option
+%p
+  %b Contact name:
+  = @order.contact_name
+%p
+  %b Contact responder name:
+  = @order.contact_kana
+%p
+  %b Contact phone:
+  = @order.contact_phone
+%p
+  %b Contact email:
+  = @order.contact_email
+%p
+  %b Request:
+  = @order.request
+
+= link_to 'Edit', edit_order_path(@order)
+\|
+= link_to 'Back', orders_path

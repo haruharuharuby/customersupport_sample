@@ -1,0 +1,43 @@
+%h1 Listing questionnaires
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Item1
+      %th Item1 text
+      %th Item2
+      %th Item2 text
+      %th Item3
+      %th Item3 text
+      %th Item4
+      %th Item4 text
+      %th Item5
+      %th Item6
+      %th Item7 text
+      %th
+      %th
+      %th
+
+  %tbody
+    - @questionnaires.each do |questionnaire|
+      %tr
+        %td= questionnaire.name
+        %td= questionnaire.item1
+        %td= questionnaire.item1_text
+        %td= questionnaire.item2
+        %td= questionnaire.item2_text
+        %td= questionnaire.item3
+        %td= questionnaire.item3_text
+        %td= questionnaire.item4
+        %td= questionnaire.item4_text
+        %td= questionnaire.item5
+        %td= questionnaire.item6
+        %td= questionnaire.item7_text
+        %td= link_to 'Show', questionnaire
+        %td= link_to 'Edit', edit_questionnaire_path(questionnaire)
+        %td= link_to 'Destroy', questionnaire, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Questionnaire', new_questionnaire_path

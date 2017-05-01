@@ -1,0 +1,14 @@
+.header.contents
+  .container
+    .row
+      .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2
+        %h2= t("campaign.name")
+
+.container
+  .row
+    .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2
+      .explanation.contents
+        %small= t("campaign.description")
+
+      .questionnaires.contents
+        = render partial: "form"

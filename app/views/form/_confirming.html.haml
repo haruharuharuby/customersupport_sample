@@ -1,0 +1,7 @@
+.row
+  .col-lg-2.col-md-3
+    = f.label sym, class: "label label-info fixed-width"
+    = f.hidden_field sym
+  .col-lg-10.col-md-9
+    .vcenter
+      = object.send sym

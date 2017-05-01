@@ -1,0 +1,22 @@
+.header
+  .container
+    .row
+      .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2
+        %h2= t("order.header3")
+.container
+  .row.contents
+    .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2
+      %h2= t("order.step1_header")
+
+  .row.contents
+    .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2
+      = render partial: "progress", locals: {active: "1"}
+    .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2
+      = render partial: "steps", locals: {caption: false}
+
+  .row.contents
+    .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2
+      - if @order.confirming.blank?
+        = render 'form_customer'
+      - else
+        = render 'form_customer_confirm'

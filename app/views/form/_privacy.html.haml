@@ -1,0 +1,15 @@
+.privacy
+  .policy-document.panel.panel-default
+    .panel-heading
+      %h4.panel-title
+        = link_to "#privacy-detail", data:{toggle: "collapse"} do
+          = t "agreement.privacy_title"
+          %span.caret
+    #privacy-detail.panel-collapse.collapse
+      .panel-body
+        = t "agreement.privacy_policy1"
+        = link_to t("catalog.privacy_policy"),"https://admcom.co.jp/company/privacy.php"
+        = t "agreement.privacy_policy2"
+.privacy-policy-aggreement.contents
+  = check_box_tag "privacy-aggreement-check"
+  %label= t "agreement.privacy_policy_agree"

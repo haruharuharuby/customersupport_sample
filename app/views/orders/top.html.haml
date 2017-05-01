@@ -1,0 +1,71 @@
+.header.contents
+  .container
+    .row
+      .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2
+        %h2= t("order.header2")
+.container
+  .row.contents
+    .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2
+      .welcome
+        = image_tag("campaign.jpg", class:"img-responsive", alt:"Responsive image")
+        %small= t("order.attention")
+        .bg-info.info
+          %h3.text-center=t("order.cash_back_html")
+
+  .row.contents
+    .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2
+      %h4
+        %strong= t("order.campaign_price_title")
+      %table.table.table-bordered.table-responsive
+        %thead
+          %tr.active
+            %td=t("order.product_name")
+            %td=t("order.price")
+            %td=t("order.price_tax_in")
+        %tbody
+          %tr
+            %td=t("order.wanpaku_lunch")
+            %td.text-right=number_to_currency(@wanpaku_price)
+            %td.text-right=number_to_currency(@wanpaku_price_tax_in)
+          %tr.text-left
+            %td=t("order.csp")
+            %td.text-right=number_to_currency(@csp_price)
+            %td.text-right=number_to_currency(@csp_price_tax_in)
+          %tr.warning
+            %td
+              %strong=t("order.sum")
+            %td.text-right
+              %strong=number_to_currency(@top_sum)
+            %td.text-right
+              %strong=number_to_currency(@top_sum_tax_in)
+
+
+
+
+  .row.contents
+    .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2
+      .order-step
+        %h3=t("order.step_title")
+        .row
+          = render partial: "progress", locals: {active: "all"}
+        .row
+          = render partial: "steps", locals: {caption: true}
+
+  .row.contents
+    .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2
+      = link_to t("action.enter_customer_info"), new_order_path, class: "btn btn-success"
+
+  .row.contents
+
+  .row.contents
+    .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2
+      .order-step
+        %h3=t("order.step_lease_title")
+        .row
+          = render partial: "progress_lease", locals: {active: "all"}
+        .row
+          = render partial: "steps_lease", locals: {caption: true}
+
+  .row.contents
+    .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2
+      = link_to t("action.order_lease"), "https://admcom.co.jp/shop/order_wanpaku_lease.php", class: "btn btn-success"

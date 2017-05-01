@@ -1,0 +1,94 @@
+.container
+  .row
+    .col-xs-12
+      .content-header
+        %h2=fa_icon "medkit", text:t("csp.header")
+      .billing
+        %h3= t("billing.header2")
+        .sub-contents
+          .row
+            .col-lg-2.col-md-3
+              %label.label.label-info.fixed-width
+                = t("nursery.name")
+            .col-lg-10.col-md-9.label-value
+              = @billing.nursery.name
+        .sub-contents
+          .row
+            .col-lg-2.col-md-3
+              %label.label.label-info.fixed-width
+                = t("nursery.kana")
+            .col-lg-10.col-md-9.label-value
+              = @billing.nursery.kana
+        .sub-contents
+          .row
+            .col-lg-2.col-md-3
+              %label.label.label-info.fixed-width
+                = t("nursery.postal_code")
+            .col-lg-10.col-md-9.label-value
+              = @billing.nursery.postal_code
+        .sub-contents
+          .row
+            .col-lg-2.col-md-3
+              %label.label.label-info.fixed-width
+                = t("nursery.address1")
+            .col-lg-10.col-md-9.label-value
+              = @billing.nursery.address1
+        .sub-contents
+          .row
+            .col-lg-2.col-md-3
+              %label.label.label-info.fixed-width
+                = t("nursery.address2")
+            .col-lg-10.col-md-9.label-value
+              = @billing.nursery.address2
+        .sub-contents
+          .row
+            .col-lg-2.col-md-3
+              %label.label.label-info.fixed-width
+                = t("nursery.phone")
+            .col-lg-10.col-md-9.label-value
+              = @billing.nursery.phone
+        .sub-contents
+          .row
+            .col-lg-2.col-md-3
+              %label.label.label-info.fixed-width
+                = t("nursery.fax")
+            .col-lg-10.col-md-9.label-value
+              = @billing.nursery.fax
+        .sub-contents
+          .row
+            .col-lg-2.col-md-3
+              %label.label.label-info.fixed-width
+                = t("nursery.email")
+            .col-lg-10.col-md-9.label-value
+              = @billing.nursery.email
+        .sub-contents
+          .row
+            .col-lg-2.col-md-3
+              %label.label.label-info.fixed-width
+                = t("nursery.responder")
+            .col-lg-10.col-md-9.label-value
+              = @billing.nursery.responder
+        .sub-contents
+          .row
+            .col-lg-2.col-md-3
+              %label.label.label-info.fixed-width
+                = t("nursery.status")
+            .col-lg-10.col-md-9.label-value
+              = @billing.nursery.status_i18n
+        .sub-contents
+          .row
+            .col-lg-2.col-md-3
+              %label.label.label-info.fixed-width
+                = t("nursery.dm_number")
+            .col-lg-10.col-md-9.label-value
+              = @billing.nursery.dm_number
+
+        - unless @billing.reseller?
+          = t("explanation.modify_billing")
+          .actions
+            = link_to t('action.modify'), edit_billing_path(@billing), class: "btn btn-warning"
+            -# = link_to t('action.create'), new_billing_path, class: "btn btn-edit"
+
+      .related-csps
+        %h3= t("billing.header3")
+        = render partial:"duplicate_list", locals:{ billing: @billing }

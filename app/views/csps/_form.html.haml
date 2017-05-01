@@ -1,0 +1,33 @@
+= form_for @csp do |f|
+  .nursery
+    = f.fields_for :nursery do |n|
+      .labeled-item
+        = n.label :name, class:"label label-info"
+        = n.text_field :name, class:"form-control"
+      .labeled-item
+        = n.label :address, class:"label label-info"
+        = n.text_field :address, class:"form-control"
+      .labeled-item
+        = n.label :phone, class:"label label-info"
+        = n.text_field :phone, class:"form-control"
+      .labeled-item
+        = n.label :fax, class:"label label-info"
+        = n.text_field :fax, class:"form-control"
+      .labeled-item
+        = n.label :email, class:"label label-info"
+        = n.text_field :email, class:"form-control"
+      .labeled-item
+        = n.label :responder, class:"label label-info"
+        = n.text_field :responder, class:"form-control"
+      .labeled-item
+        = n.label :billing_address, class:"label label-info"
+        = n.text_field :billing_address, class:"form-control"
+      .labeled-item
+        = n.label :status, class:"label label-info"
+        = n.select :status, Hash[[Nursery.statuses_i18n.invert.keys, Nursery.statuses.keys].transpose], {}, class:"form-control"
+  .labeled-item
+    = f.label :password, class:"label label-info"
+    = f.password_field :password, class:"form-control"
+  .actions
+    = f.submit t("action.save"), class:"btn btn-edit"
+    = link_to t("action.back"), @csp, class: "btn btn-edit"

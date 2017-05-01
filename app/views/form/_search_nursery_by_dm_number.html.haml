@@ -1,0 +1,24 @@
+.saerch-by-dm-number
+  .panel.panel-default
+    .panel-heading
+      %h4.panel-title
+        = link_to "#dm-number-search-detail", data:{toggle: "collapse"} do
+          = t("csp.dm_number_search")
+          %span.caret
+    #dm-number-search-detail.panel-collapse.collapse
+      .panel-body
+        .customer-search-message-container.contents.alert.alert-danger
+        = form_for :nursery do |f|
+          .contents
+            = render partial: "form/input_tag", locals:{type:"text_field_tag", name:"dm_number", caption: t("nursery.dm_number")}
+            = link_to t("nursery.dm_image"), image_path("dm.jpg"), data:{lightbox: "1"}
+          .validation-info
+            .explanation.sub-contents
+              %small= t("explanation.dm_number_search_validation")
+            .sub-contents
+              = render partial: "form/input_tag", locals:{type:"text_field_tag", name: "validate_postal_code", caption:t("nursery.postal_code")}
+            .sub-contents
+              = render partial: "form/input_tag", locals:{type:"text_field_tag", name: "validate_phone", caption:t("nursery.phone")}
+            .actions
+              %p
+              = button_tag t("action.search"), {type:"button", class: "btn btn-warning", id:"search-by-dm-number-submit"}

@@ -1,0 +1,28 @@
+.container
+  .row
+    .col-xs-12
+      .content-header
+        %h2=fa_icon "medkit", text:t("csp.header")
+      .csp.contents
+        %h3= t("csp.header2")
+        .sub-contents
+          .row
+            .col-lg-2.col-md-3
+              %label.label.label-info.fixed-width
+                = t("csp.number")
+            .col-lg-10.col-md-9.label-value
+              = @csp.number
+        .sub-contents
+          .row
+            .col-lg-2.col-md-3
+              %label.label.label-info.fixed-width
+                = t("csp.term")
+            .col-lg-10.col-md-9.label-value
+              = @csp.term
+        .sub-contents
+          .row
+            .col-lg-2.col-md-3
+              %label.label.label-info.fixed-width
+                = t("csp.grade")
+            .col-lg-10.col-md-9.label-value
+              = @csp.grade_i18n

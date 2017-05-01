@@ -1,0 +1,6 @@
+.container
+  .row
+    .col-xs-12
+      .content-header
+        %h2=fa_icon "envelope", text:t("contact.header")
+      = render partial:'form', locals:{ contact:@contact }

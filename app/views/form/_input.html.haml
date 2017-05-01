@@ -1,0 +1,6 @@
+.row
+  .col-lg-2.col-md-3
+    - sym_name = sym.to_s == "nursery_name" ? "name" : sym.to_s
+    = f.label sym, t("nursery.#{sym_name}"), class: "label label-info fixed-width"
+  .col-lg-10.col-md-9
+    = f.send type, sym, class: "form-control search-nursery-result"

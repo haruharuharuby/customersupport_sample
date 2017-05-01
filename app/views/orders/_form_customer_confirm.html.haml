@@ -1,0 +1,306 @@
+= form_for @order do |f|
+  = render partial: "application/model_alert", locals: {object: @order}
+  = f.hidden_field :confirming
+  .order_products
+    = f.fields_for :order_details do |op|
+      = op.hidden_field :product_id
+      = op.hidden_field :num
+      = op.hidden_field :charge
+      = op.hidden_field :charge_tax_in
+    = f.hidden_field :sum
+    = f.hidden_field :sum_tax_in
+  .nursery.contents
+    .contents.title
+      %h3= t("order.question_nursery")
+    .row.sub-contents
+      .col-lg-2.col-md-3
+        = f.label :org_nursery_name, class: "label label-info fixed-width required"
+      .col-lg-10.col-md-9
+        %p.lead.confirm_text= @order.org_nursery_name
+        = f.hidden_field :org_nursery_name
+    .row.sub-contents
+      .col-lg-2.col-md-3
+        = f.label :org_nursery_kana, class: "label label-info fixed-width required"
+      .col-lg-10.col-md-9
+        %p.lead.confirm_text= @order.org_nursery_kana
+        = f.hidden_field :org_nursery_kana
+    .row.sub-contents
+      .col-lg-2.col-md-3
+        = f.label :nursery_name, class: "label label-info fixed-width required"
+      .col-lg-10.col-md-9
+        %p.lead.confirm_text= @order.nursery_name
+        = f.hidden_field :nursery_name
+    .row.sub-contents
+      .col-lg-2.col-md-3
+        = f.label :nursery_kana, class: "label label-info fixed-width required"
+      .col-lg-10.col-md-9
+        %p.lead.confirm_text= @order.nursery_kana
+        = f.hidden_field :nursery_kana
+    .row.sub-contents
+      .col-lg-2.col-md-3
+        = f.label :nursery_postal, class: "label label-info fixed-width"
+      .col-lg-10.col-md-9
+        %p.lead.confirm_text= @order.nursery_postal
+        = f.hidden_field :nursery_postal
+    .row.sub-contents
+      .col-lg-2.col-md-3
+        = f.label :nursery_addr1, class: "label label-info fixed-width"
+      .col-lg-10.col-md-9
+        %p.lead.confirm_text= @order.nursery_addr1
+        = f.hidden_field :nursery_addr1
+    .row.sub-contents
+      .col-lg-2.col-md-3
+        = f.label :nursery_addr2, class: "label label-info fixed-width"
+      .col-lg-10.col-md-9
+        %p.lead.confirm_text= @order.nursery_addr2
+        = f.hidden_field :nursery_addr2
+    .row.sub-contents
+      .col-lg-2.col-md-3
+        = f.label :nursery_phone, class: "label label-info fixed-width"
+      .col-lg-10.col-md-9
+        %p.lead.confirm_text= @order.nursery_phone
+        = f.hidden_field :nursery_phone
+    .row.sub-contents
+      .col-lg-2.col-md-3
+        = f.label :nursery_fax, class: "label label-info fixed-width"
+      .col-lg-10.col-md-9
+        %p.lead.confirm_text= @order.nursery_fax
+        = f.hidden_field :nursery_fax
+    .row.sub-contents
+      .col-lg-2.col-md-3
+        = f.label :nursery_email, class: "label label-info fixed-width"
+      .col-lg-10.col-md-9
+        %p.lead.confirm_text= @order.nursery_email
+        = f.hidden_field :nursery_email
+    .row.sub-contents
+      .col-lg-2.col-md-3
+        = f.label :nursery_responder_name, class: "label label-info fixed-width"
+      .col-lg-10.col-md-9
+        %p.lead.confirm_text= @order.nursery_responder_name
+        = f.hidden_field :nursery_responder_name
+    .row.sub-contents
+      .col-lg-2.col-md-3
+        = f.label :nursery_responder_kana, class: "label label-info fixed-width"
+      .col-lg-10.col-md-9
+        %p.lead.confirm_text= @order.nursery_responder_kana
+        = f.hidden_field :nursery_responder_kana
+    .contents
+  .cash_back.contents
+    .contents.title
+      %h4= t("order.has_experience")
+    %small= t("order.cash_back_condition")
+    .row.sub-contents
+      .col-lg-2.col-md-3
+        = f.label :is_first_order, class: "label label-info fixed-width required"
+      .col-lg-10.col-md-9
+        %p.lead.confirm_text= @order.t_is_first_order
+        = f.hidden_field :is_first_order
+    #experience.contents
+      .row.sub-contents
+        .col-lg-2.col-md-3
+          = f.label :same_org_other_nursery_name, class: "label label-info fixed-width required"
+        .col-lg-10.col-md-9
+          %p.lead.confirm_text= @order.same_org_other_nursery_name
+          = f.hidden_field :same_org_other_nursery_name
+      .row.sub-contents
+        .col-lg-2.col-md-3
+          = f.label :same_org_other_nursery_phone, class: "label label-info fixed-width required"
+        .col-lg-10.col-md-9
+          %p.lead.confirm_text= @order.same_org_other_nursery_phone
+          = f.hidden_field :same_org_other_nursery_phone
+
+  .shipping.contents
+    .contents.title
+      %h4= t("order.shipping")
+    .row.sub-contents
+      .col-lg-2.col-md-3
+        = f.label :is_ship_to_nursery, class: "label label-info fixed-width required"
+      .col-lg-10.col-md-9
+        %p.lead.confirm_text= @order.t_is_ship_to_nursery
+        = f.hidden_field :is_ship_to_nursery
+    #shipping.contents
+      .row.sub-contents
+        .col-lg-2.col-md-3
+          = f.label :shipping_name, class: "label label-info fixed-width required"
+        .col-lg-10.col-md-9
+          %p.lead.confirm_text= @order.shipping_name
+          = f.hidden_field :shipping_name
+      .row.sub-contents
+        .col-lg-2.col-md-3
+          = f.label :shipping_kana, class: "label label-info fixed-width required"
+        .col-lg-10.col-md-9
+          %p.lead.confirm_text= @order.shipping_kana
+          = f.hidden_field :shipping_kana
+      .row.sub-contents
+        .col-lg-2.col-md-3
+          = f.label :shipping_postal, class: "label label-info fixed-width required"
+        .col-lg-10.col-md-9
+          %p.lead.confirm_text= @order.shipping_postal
+          = f.hidden_field :shipping_postal
+      .row.sub-contents
+        .col-lg-2.col-md-3
+          = f.label :shipping_addr1, class: "label label-info fixed-width required"
+        .col-lg-10.col-md-9
+          %p.lead.confirm_text= @order.shipping_addr1
+          = f.hidden_field :shipping_addr1
+      .row.sub-contents
+        .col-lg-2.col-md-3
+          = f.label :shipping_addr2, class: "label label-info fixed-width required"
+        .col-lg-10.col-md-9
+          %p.lead.confirm_text= @order.shipping_addr2
+          = f.hidden_field :shipping_addr2
+      .row.sub-contents
+        .col-lg-2.col-md-3
+          = f.label :shipping_phone, class: "label label-info fixed-width required"
+        .col-lg-10.col-md-9
+          %p.lead.confirm_text= @order.shipping_phone
+          = f.hidden_field :shipping_phone
+      .row.sub-contents
+        .col-lg-2.col-md-3
+          = f.label :shipping_responder_name, class: "label label-info fixed-width"
+        .col-lg-10.col-md-9
+          %p.lead.confirm_text= @order.shipping_responder_name
+          = f.hidden_field :shipping_responder_name
+      .row.sub-contents
+        .col-lg-2.col-md-3
+          = f.label :shipping_responder_kana, class: "label label-info fixed-width"
+        .col-lg-10.col-md-9
+          %p.lead.confirm_text= @order.shipping_responder_kana
+          = f.hidden_field :shipping_responder_kana
+
+  .billing.contents
+    .contents.title
+      %h4= t("order.billing_option")
+    .row.sub-contents
+      .col-lg-2.col-md-3
+        = f.label :billing_ship_to, class: "label label-info fixed-width required"
+      .col-lg-10.col-md-9
+        %p.lead.confirm_text= @order.t_billing_ship_to
+        = f.hidden_field :billing_ship_to
+    #billing.contents
+      .row.sub-contents
+        .col-lg-2.col-md-3
+          = f.label :billing_shipping_name, class: "label label-info fixed-width required"
+        .col-lg-10.col-md-9
+          %p.lead.confirm_text= @order.billing_shipping_name
+          = f.hidden_field :billing_shipping_name
+      .row.sub-contents
+        .col-lg-2.col-md-3
+          = f.label :billing_shipping_kana, class: "label label-info fixed-width required"
+        .col-lg-10.col-md-9
+          %p.lead.confirm_text= @order.billing_shipping_kana
+          = f.hidden_field :billing_shipping_kana
+      .row.sub-contents
+        .col-lg-2.col-md-3
+          = f.label :billing_shipping_postal, class: "label label-info fixed-width required"
+        .col-lg-10.col-md-9
+          %p.lead.confirm_text= @order.billing_shipping_postal
+          = f.hidden_field :billing_shipping_postal
+      .row.sub-contents
+        .col-lg-2.col-md-3
+          = f.label :billing_shipping_addr1, class: "label label-info fixed-width required"
+        .col-lg-10.col-md-9
+          %p.lead.confirm_text= @order.billing_shipping_addr1
+          = f.hidden_field :billing_shipping_addr1
+      .row.sub-contents
+        .col-lg-2.col-md-3
+          = f.label :billing_shipping_addr2, class: "label label-info fixed-width required"
+        .col-lg-10.col-md-9
+          %p.lead.confirm_text= @order.billing_shipping_addr2
+          = f.hidden_field :billing_shipping_addr2
+      .row.sub-contents
+        .col-lg-2.col-md-3
+          = f.label :billing_shipping_phone, class: "label label-info fixed-width required"
+        .col-lg-10.col-md-9
+          %p.lead.confirm_text= @order.billing_shipping_phone
+          = f.hidden_field :billing_shipping_phone
+      .row.sub-contents
+        .col-lg-2.col-md-3
+          = f.label :billing_responder_name, class: "label label-info fixed-width"
+        .col-lg-10.col-md-9
+          %p.lead.confirm_text= @order.billing_responder_name
+          = f.hidden_field :billing_responder_name
+      .row.sub-contents
+        .col-lg-2.col-md-3
+          = f.label :billing_responder_kana, class: "label label-info fixed-width"
+        .col-lg-10.col-md-9
+          %p.lead.confirm_text= @order.billing_responder_kana
+          = f.hidden_field :billing_responder_kana
+
+  .billing_name.contents
+    .contents.title
+      %h4= t("order.billing_name_option")
+      %small= t("order.billing_name_explain")
+    .row.sub-contents
+      .col-lg-2.col-md-3
+        = f.label :billing_name_option, class: "label label-info fixed-width"
+      .col-lg-10.col-md-9
+        %p.lead.confirm_text= @order.t_billing_name_option
+        = f.hidden_field :billing_name_option
+
+  .nursery.contents
+    .contents.title
+      %h4= t("order.nursery_condition")
+    .nursery.contents
+      .row.sub-contents
+        .col-lg-2.col-md-3
+          = f.label :nursery_condition, class: "label label-info fixed-width required"
+        .col-lg-10.col-md-9
+          %p.lead.confirm_text= @order.t_nursery_condition
+          = f.hidden_field :nursery_condition
+      #open_or_change_corp
+        .row.sub-contents
+          .col-lg-2.col-md-3
+            = f.label :nursery_will_change_at, class: "label label-info fixed-width required"
+          .col-lg-10.col-md-9
+            %p.lead.confirm_text= @order.nursery_will_change_at
+            = f.hidden_field :nursery_will_change_at
+        .row.sub-contents
+          .col-lg-2.col-md-3
+            = f.label :shipping_option, class: "label label-info fixed-width required"
+          .col-lg-10.col-md-9
+            %p.lead.confirm_text= @order.t_shipping_option
+            = f.hidden_field :shipping_option
+  .contact.contents
+    .contents.title
+      %h4= t("order.contact")
+    .row.sub-contents
+      .col-lg-2.col-md-3
+        = f.label :contact_name, class: "label label-info fixed-width required"
+      .col-lg-10.col-md-9
+        %p.lead.confirm_text= @order.contact_name
+        = f.hidden_field :contact_name
+    .row.sub-contents
+      .col-lg-2.col-md-3
+        = f.label :contact_kana, class: "label label-info fixed-width required"
+      .col-lg-10.col-md-9
+        %p.lead.confirm_text= @order.contact_kana
+        = f.hidden_field :contact_kana
+    .row.sub-contents
+      .col-lg-2.col-md-3
+        = f.label :contact_phone, class: "label label-info fixed-width required"
+      .col-lg-10.col-md-9
+        %p.lead.confirm_text= @order.contact_phone
+        = f.hidden_field :contact_phone
+    .row.sub-contents
+      .col-lg-2.col-md-3
+        = f.label :contact_email, class: "label label-info fixed-width required"
+      .col-lg-10.col-md-9
+        %p.lead.confirm_text= @order.contact_email
+        = f.hidden_field :contact_email
+
+  .request.contents
+    .sub-contents
+      %h5= t("order.request")
+      .row.sub-contents
+        .col-lg-2.col-md-3
+          = f.label :request, class: "label label-info fixed-width"
+        .col-lg-10.col-md-9
+          %p.lead.confirm_text= @order.request
+          = f.hidden_field :request
+
+  .other.contents
+    = render partial: "form/privacy"
+  .actions
+    = f.submit t("action.to_questionnaire"), data: { disable_with: t("action.sending") }, class: "btn btn-success", id:"order_button"
+    -# = link_to t("action.back"), new_order_path, class: "btn btn-success"

@@ -1,0 +1,22 @@
+.header.contents
+  .container
+    .row
+      .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2
+        %h2= t("catalog.header2")
+
+.container
+  .row
+    .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2
+      - if @catalog.confirming.blank?
+        .explanation.contents
+          %small= t("catalog.explanation.welcome")
+        .search-by-dm-number.contents
+          = render 'form/search_nursery_by_dm_number'
+        .estimation
+          = render 'form'
+
+      -else
+        .explanation
+          %small= t("catalog.explanation.confirm")
+        .destination
+          = render 'form'

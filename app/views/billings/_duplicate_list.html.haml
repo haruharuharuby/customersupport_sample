@@ -1,0 +1,11 @@
+- if billing.duplicate?
+  %table.table.table-responsive.table-hover
+    %thead
+      %tr
+        %th= t("nursery.name")
+    %tbody
+      - billing.duplicates(current_csp).each do |csp|
+        %tr
+          %td= csp.nursery.name
+- else
+  = t("billing.nothing_related_csps")
